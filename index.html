@@ -54,7 +54,6 @@
       100% { transform: scale(1); }
     }
 
-    /* 💖 Corações animados aleatórios */
     .floating-heart {
       position: fixed;
       bottom: -50px;
@@ -78,7 +77,12 @@
   <button onclick="mostrarElogio()">Clique aqui 💌</button>
   <p id="elogio"></p>
 
-  <!-- container de corações -->
+  <!-- 🎵 Música de fundo -->
+  <audio autoplay loop>
+    <source src="https://open.spotify.com/intl-pt/track/4rHZZAmHpZrA3iH5zx8frV?si=e2f0640ada7f4603" type="audio/mpeg">
+    Seu navegador não suporta áudio :(
+  </audio>
+
   <div id="coracoes"></div>
 
   <script>
@@ -101,7 +105,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Elogios aleatórios
+    // Elogios
     const elogios = [
       "Seu sorriso é o meu lugar favorito.",
       "Você transforma dias normais em momentos incríveis.",
@@ -115,7 +119,7 @@
       document.getElementById("elogio").textContent = frase;
     }
 
-    // Gerador de corações flutuantes aleatórios
+    // Corações flutuantes
     function criarCoracao() {
       const coracoes = ["💖", "💘", "💗", "💓", "💕"];
       const coracao = document.createElement("div");
@@ -130,7 +134,7 @@
       }, 6000);
     }
 
-    setInterval(criarCoracao, 400); // a cada 400ms um novo coração
+    setInterval(criarCoracao, 400);
   </script>
 </body>
 </html>
