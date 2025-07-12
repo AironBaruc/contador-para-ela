@@ -54,21 +54,19 @@
       100% { transform: scale(1); }
     }
 
-    /* 💖 Animação de corações subindo */
-    body::before {
-      content: "💖 💕 💘 💗 💓";
+    /* 💖 Corações animados aleatórios */
+    .floating-heart {
       position: fixed;
-      top: 100%;
-      left: 50%;
-      animation: subir 10s infinite linear;
-      font-size: 2rem;
-      opacity: 0.3;
+      bottom: -50px;
+      font-size: 24px;
+      animation: subir 6s linear infinite;
+      opacity: 0.6;
       pointer-events: none;
     }
 
     @keyframes subir {
-      0% { top: 100%; transform: translateX(-50%) scale(1); }
-      100% { top: -10%; transform: translateX(-50%) scale(1.5); }
+      0% { transform: translateY(0) scale(1); opacity: 0.6; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
@@ -80,8 +78,11 @@
   <button onclick="mostrarElogio()">Clique aqui 💌</button>
   <p id="elogio"></p>
 
+  <!-- container de corações -->
+  <div id="coracoes"></div>
+
   <script>
-    // Data que vocês se conheceram:
+    // Contador de tempo
     const dataConhecimento = new Date("2025-06-12T15:20:17");
 
     function atualizarContador() {
@@ -100,7 +101,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Elogios
+    // Elogios aleatórios
     const elogios = [
       "Seu sorriso é o meu lugar favorito.",
       "Você transforma dias normais em momentos incríveis.",
@@ -113,6 +114,23 @@
       const frase = elogios[Math.floor(Math.random() * elogios.length)];
       document.getElementById("elogio").textContent = frase;
     }
+
+    // Gerador de corações flutuantes aleatórios
+    function criarCoracao() {
+      const coracoes = ["💖", "💘", "💗", "💓", "💕"];
+      const coracao = document.createElement("div");
+      coracao.classList.add("floating-heart");
+      coracao.textContent = coracoes[Math.floor(Math.random() * coracoes.length)];
+      coracao.style.left = Math.random() * 100 + "vw";
+      coracao.style.fontSize = (Math.random() * 20 + 20) + "px";
+      document.body.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 6000);
+    }
+
+    setInterval(criarCoracao, 400); // a cada 400ms um novo coração
   </script>
 </body>
 </html>
