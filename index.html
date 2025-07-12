@@ -77,16 +77,21 @@
   <button onclick="mostrarElogio()">Clique aqui 💌</button>
   <p id="elogio"></p>
 
-  <!-- 🎵 Música de fundo -->
-  <audio autoplay loop>
-    <source src="https://open.spotify.com/intl-pt/track/4rHZZAmHpZrA3iH5zx8frV?si=e2f0640ada7f4603" type="audio/mpeg">
-    Seu navegador não suporta áudio :(
-  </audio>
+  <!-- 🎵 Player do Spotify -->
+  <iframe style="border-radius:12px; margin-top: 30px;" 
+    src="https://open.spotify.com/embed/track/4rHZZAmHpZrA3iH5zx8frV?utm_source=generator" 
+    width="300" 
+    height="80" 
+    frameborder="0" 
+    allowfullscreen="" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
 
   <div id="coracoes"></div>
 
   <script>
-    // Contador de tempo
+    // Contador de tempo desde o dia que se conheceram
     const dataConhecimento = new Date("2025-06-12T15:20:17");
 
     function atualizarContador() {
@@ -105,7 +110,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Elogios
+    // Elogios aleatórios
     const elogios = [
       "Seu sorriso é o meu lugar favorito.",
       "Você transforma dias normais em momentos incríveis.",
