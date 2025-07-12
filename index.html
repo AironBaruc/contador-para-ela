@@ -15,6 +15,7 @@
       margin: 0;
       flex-direction: column;
       text-align: center;
+      overflow: hidden;
     }
 
     h1 {
@@ -52,6 +53,23 @@
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
+
+    /* 💖 Animação de corações subindo */
+    body::before {
+      content: "💖 💕 💘 💗 💓";
+      position: fixed;
+      top: 100%;
+      left: 50%;
+      animation: subir 10s infinite linear;
+      font-size: 2rem;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    @keyframes subir {
+      0% { top: 100%; transform: translateX(-50%) scale(1); }
+      100% { top: -10%; transform: translateX(-50%) scale(1.5); }
+    }
   </style>
 </head>
 <body>
@@ -82,7 +100,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
 
-    // Função de elogios
+    // Elogios
     const elogios = [
       "Seu sorriso é o meu lugar favorito.",
       "Você transforma dias normais em momentos incríveis.",
