@@ -63,5 +63,21 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
   </script>
+  <button onclick="mostrarElogio()">Clique aqui 💌</button>
+<p id="elogio"></p>
+
+<script>
+  const elogios = [
+    "Seu sorriso ilumina qualquer momento.",
+    "Você é a melhor parte do meu dia.",
+    "Sou muito grato por ter te conhecido 💖",
+    "Você tem um jeitinho único que me encanta."
+  ];
+
+  function mostrarElogio() {
+    const frase = elogios[Math.floor(Math.random() * elogios.length)];
+    document.getElementById("elogio").textContent = frase;
+  }
+</script>
 </body>
 </html>
